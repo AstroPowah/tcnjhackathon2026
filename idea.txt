@@ -13,7 +13,8 @@ Then each mood lvl will have its own set of string responses
 (Objective of player is to leave while the bot won’t let them leave until they are satisfied)
 
 Angry lvl 1: Huh… who do you think you are bud.
-Angry lvl 2: Pipe down pipsqueak before I give you a reason to start squeaking
-Angry lvl 3: grrrrrr
-Happy lvl1: You’re funny but nah
-Happy lvl2: Monkey
+Angry lvl 2: Pipe down pipsqueak before I give you a reason to start squeaking.
+Angry lvl 3: grrrrrr you'll never leave.
+Happy lvl1: Hmm ... I see where you're going with this.
+Happy lvl2: I like that idea, I guess we'll see.
+Happy lvl3:(laughs*) You know what, we should get out of here and get some fried chicken.
