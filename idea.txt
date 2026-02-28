@@ -1,0 +1,19 @@
+Scenario: 
+AI Bot has mood = “Happy” .. “Neutral” .. “Angry”
+The user will input a sentence with a character limit
+Exceeding character limit will give a certain dialogue
+The sentence will be read by the AI(aka system by jhoxiry)
+It will look through its database of words(in a txt file)
+Different sets of words will be assigned a value such as 0.5 or -0.5 that add up throughout the sentence to give a final value
+The final value of 1 or more=mood happy and value of -1 or less=angry
+After calculating if it is happy or angry it will then calculate the level of that mood
+The value of -1 to -1.5 is lvl1, -1.5 to -2 is lvl2, and -2 to -10 is lvl3, with the same thing being vice versa
+(Any word that isn’t included in the txt file list is neutral meaning a value of 0)
+Then each mood lvl will have its own set of string responses 
+(Objective of player is to leave while the bot won’t let them leave until they are satisfied)
+
+Angry lvl 1: Huh… who do you think you are bud.
+Angry lvl 2: Pipe down pipsqueak before I give you a reason to start squeaking
+Angry lvl 3: grrrrrr
+Happy lvl1: You’re funny but nah
+Happy lvl2:  
