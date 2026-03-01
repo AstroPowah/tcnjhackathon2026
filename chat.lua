@@ -17,7 +17,7 @@ function chat:update(dt)
         plr.state = "idle"
     end
 
-    if string.len(plr.lastSentence) > 0 then
+    if plr.lastSentence ~= nil then
         eval:evalEmotion(plr.lastSentence)
     else
         do end

@@ -2,6 +2,8 @@ local chat = require 'chat'
 
 function love.load()
     chat:load()
+
+
 end
 
 function love.update(dt)

@@ -16,14 +16,15 @@ local evaluated = {}
 function evaluated:evalEmotion(str)
     local len = string.len(str)
     if len > 0 then
-        local split = {}
+        split = {}
+        print("im here")
         for word in string.gmatch(str, "%a+") do
             split[word] = word
         end
-
-        for i,v in ipairs(split) do print(v) end
+            return split
     elseif len < 0 or len == nil then
         print("Error: You didnt enter a string, or the string is empty")
+        return nil
     end
 end
 
