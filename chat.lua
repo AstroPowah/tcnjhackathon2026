@@ -11,15 +11,19 @@ end
 
 function chat:update(dt)
     if plr.state == "sentMessage" then
+        local splitMessage = {}
+        print("Sent once")
         plr.lastSentence = finalText
-        print(plr.lastSentence)
+        if string.len(plr.lastSentence) > 0 then
+            print(plr.lastSentence)
+            splitMessage = eval:evalEmotion(plr.lastSentence)
+        end
+        for index, value in ipairs(splitMessage) do
+            print(index, value)
+        end
         plr.state = "idle"
     end
 
-    if string.len(plr.lastSentence) > 0 then
-        print(plr.lastSentence)
-        eval:evalEmotion(plr.lastSentence)
-    end
 end
 
 function chat:draw()

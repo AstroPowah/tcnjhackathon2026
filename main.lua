@@ -1,4 +1,5 @@
 local chat = require 'chat'
+_G.love = require 'love'
 
 function love.load()
     chat:load()
