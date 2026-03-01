@@ -1,6 +1,7 @@
 local plr = require 'player'
 local utf8 = require 'utf8'
 local eval = require 'evaluate'
+local wordbank = require 'wordbank'
 
 local chat = {}
 
@@ -17,6 +18,7 @@ function chat:update(dt)
         if string.len(plr.lastSentence) > 0 then
             print(plr.lastSentence)
             splitMessage = eval:evalEmotion(plr.lastSentence)
+            eval:compare(splitMessage)
         end
         for index, value in ipairs(splitMessage) do
             print(index, value)
@@ -24,6 +26,7 @@ function chat:update(dt)
         plr.state = "idle"
     end
 
+    
 end
 
 function chat:draw()

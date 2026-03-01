@@ -1,12 +1,51 @@
 local wordbank = {
     happyWords = {
-            "love"           
+            "funny",
+            "smart",
+            "nice",
+            "love",
+            "cool"
         },
     angryWords = {
-            "mad"
+            "stupid",
+            "dumb",
+            "idiot",
+            "loser",
+            "no"
         },
     sadWords = {
-            "death"
+            "ugly",
+            "fat",
+            "butterball",
+            "hideous",
+            "bum"
         }
 }
-return wordbank
+
+local responses = {
+    positive = {
+        -- "Love it!",
+        "Great!",
+        "I agree",
+        "I'm ecstatic",
+        "Amazing."
+    },
+    
+    negative = {
+        "What...the hell..",
+        "Why would you say that.",
+        "What is wrong with you.",
+        "Freak you.",
+        "Rude."
+    },
+
+    neutral = {
+        "Okay.",
+        "Uhh..",
+        "Alrighty.",
+        "Huh...",
+        "Bruh."
+    }
+}
+
+return wordbank, responses

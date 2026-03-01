@@ -14,11 +14,20 @@ The value of -1 to -1.5 is lvl1, -1.5 to -2 is lvl2, and -2 to -10 is lvl3, with
 local evaluated = {}
 
 function evaluated:evalEmotion(str)
-    split = {}
+    local split = {}
     for word in string.gmatch((str), "%a+") do
         table.insert(split, word)
     end
     return split
+end
+
+function evaluated:compare(splitStr)
+    for _, n in pairs(wb) do
+        for mood, words in pairs(n) do
+            matches = string.match(splitStr, p)
+        end
+    end
+    
 end
 
 return evaluated
