@@ -1,6 +1,6 @@
 local plr = require 'player'
 local utf8 = require 'utf8'
-local eval = require 'evaluate'
+local eval = require 'tools.evaluate'
 
 local chat = {}
 
@@ -12,15 +12,18 @@ end
 function chat:update(dt)
     if plr.state == "sentMessage" then
         local splitMessage = {}
+        local moodAmount 
         print("Sent once")
         plr.lastSentence = finalText
         if string.len(plr.lastSentence) > 0 then
             print(plr.lastSentence)
             splitMessage = eval:evalEmotion(plr.lastSentence)
+            moodAmount = eval:evalEmot(splitMessage)
         end
         for index, value in ipairs(splitMessage) do
             print(index, value)
         end
+        print("The mood is", moodAmount)
         plr.state = "idle"
     end
 
@@ -36,7 +39,7 @@ function chat:draw()
         love.graphics.print(text, 60, 110)
         local substring = string.sub(text, 1, 1)
         if substring == "/" then
-            text = "" 
+            text = ""
         end
     end
 end
