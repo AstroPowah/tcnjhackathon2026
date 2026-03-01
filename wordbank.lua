@@ -1,6 +1,6 @@
 local wordbank = {
     happyWords = {
-            "love"
+            "love"           
         },
     angryWords = {
             "mad"

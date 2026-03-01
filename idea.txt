@@ -1,0 +1,24 @@
+Scenario: 
+AI Bot has mood = “Happy” .. “Neutral” .. “Angry”
+The user will input a sentence with a character limit
+Exceeding character limit will give a certain dialogue
+The sentence will be read by the AI(aka system by jhoxiry)
+It will look through its database of words(in a txt file)
+Different sets of words will be assigned a value such as 0.5 or -0.5 that add up throughout the sentence to give a final value
+The final value of 1 or more=mood happy and value of -1 or less=angry
+After calculating if it is happy or angry it will then calculate the level of that mood
+The value of -1 to -1.5 is lvl1, -1.5 to -2 is lvl2, and -2 to -10 is lvl3, with the same thing being vice versa
+(Any word that isn’t included in the txt file list is neutral meaning a value of 0)
+Then each mood lvl will have its own set of string responses 
+(Objective of player is to leave while the bot won’t let them leave until they are satisfied)
+
+Angry lvl 1: Huh… who do you think you are bud. Try again.
+Angry lvl 2: Pipe down pipsqueak before I give you a reason to start squeaking.
+Angry lvl 3: grrrrrr you'll never leave.
+Happy lvl1: Hmm ... I see where you're going with this.
+Happy lvl2: I like that idea, I guess we'll see. Keep going.
+Happy lvl3:(laughs*) You know what, we should get out of here and get some fried chicken.
+Happy words intensity 0.5 {ask, helpful,help,safe, fair, hoping, perfect, great, cooperative, supportive, confident, honestly}
+Happy words intensity 0.75 {love, like, please, trust, thoughtful, kind, kindness, considerate, programming}
+Angry words intensity 0.5 {want,unlock, unlocking, unfair, stop, exit, leave, don't, trapped, not helping, difficult} 
+Angry words intesisty 0.75 {annoying, demand, hate, stubborn, just open, let me out,}
