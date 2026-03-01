@@ -1,6 +1,9 @@
 local malachi = {
     x = 60,
     y = 60,
+    velX = 0,
+    velY = 0,
+    
     text = "",
     textLifeSpan = 5,
     state = "",

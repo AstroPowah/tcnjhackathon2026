@@ -1,19 +1,19 @@
 local wordbank = {
-    happyWords = {
+    Happy = {
             "funny",
             "smart",
             "nice",
             "love",
             "cool"
         },
-    angryWords = {
+    Angry = {
             "stupid",
             "dumb",
             "idiot",
             "loser",
             "no"
         },
-    sadWords = {
+    Sad = {
             "ugly",
             "fat",
             "butterball",

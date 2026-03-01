@@ -1,4 +1,4 @@
--- local wb = require 'wordbank'
+-- local wb = require 'tools.wordbank'
 local plr = require 'player'
 
 --[[
@@ -13,11 +13,12 @@ The value of -1 to -1.5 is lvl1, -1.5 to -2 is lvl2, and -2 to -10 is lvl3, with
 
 local function getTypeOfText(LastText)
     local textType = {['neutral'] = .5,['greeting'] = 0, ['question'] = 0, ['statement'] = 0}
-    for type, words in pairs(typeOfText) do
-        for key, startingWord in pairs(words) do
+    for type, words in pairs(typeOfTexts) do
+        for i, word in ipairs(words) do
             for _, splitWord in pairs(LastText) do
-                if splitWord:lower() == startingWord:lower() then
-                    print("Found " .. startingWord .. " in " .. splitWord, type)
+                -- print(word)
+                if splitWord:lower() == word:lower() then
+                    print("Found " .. word .. " in " .. splitWord, type)
                     textType[type] = textType[type] + 1
                 end
             end
@@ -74,10 +75,12 @@ function evaluated:evalEmot(strSplit)
 end
 
 function evaluated:evalTypeOfText(str)
+    print(str)
     return getTypeOfText(str)
 end
 
 function evaluated:getResponse(type, mood)
+    print("Getting response for type:", type, "and mood:", mood)
     local response = responses[type][mood]
     return response[math.random(1, #response)]
     

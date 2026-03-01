@@ -8,9 +8,10 @@ local player = {
 }
 
 function player:load()
+    
 end
 
-function player.update(dt)
+function player:update(dt)
     if love.keyboard.isDown("s") then
         player.y = player.y + 5
     elseif love.keyboard.isDown("w") then
