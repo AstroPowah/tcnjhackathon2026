@@ -8,7 +8,7 @@ function love.load()
     --chat:load()
     map = sti("assets/tiled/mainRoom.lua", { "bump" })
     map:bump_init(map)
-    
+    map:resize(20, 20)
 end
 
 function love.update(dt)
@@ -22,9 +22,9 @@ end
 
 function love.draw()
     --chat:draw()
-    map:drawLayer(map.layers["background"])
-    map:drawLayer(map.layers["foreground"])
-    map:drawLayer(map.layers["objects"])
+    map:drawLayer(map.layers["background"], 10, 10)
+    map:drawLayer(map.layers["foreground"], 10, 10)
+    map:drawLayer(map.layers["objects"], 10, 10)
     --map:bump_draw(map, 0, 0, 0, 0)
 end
 

@@ -13,6 +13,7 @@ end
 function chat:update(dt)
     if plr.state == "sentMessage" then
         local splitMessage = {}
+        local moodAmount 
         print("Sent once")
         plr.lastSentence = finalText
         if string.len(plr.lastSentence) > 0 then
@@ -23,6 +24,7 @@ function chat:update(dt)
         for index, value in ipairs(splitMessage) do
             print(index, value)
         end
+        print("The mood is", moodAmount)
         plr.state = "idle"
     end
 
@@ -39,7 +41,7 @@ function chat:draw()
         love.graphics.print(text, 60, 110)
         local substring = string.sub(text, 1, 1)
         if substring == "/" then
-            text = "" 
+            text = ""
         end
     end
 end
