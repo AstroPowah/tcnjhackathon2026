@@ -10,11 +10,31 @@ function chat:load()
 end
 
 function chat:update(dt)
-    
+    if plr.state == "sentMessage" then
+        plr.lastSentence = finalText
+        print(plr.lastSentence)
+        plr.state = "idle"
+    end
+
+    if string.len(plr.lastSentence) > 0 then
+        print(plr.lastSentence)
+        eval:evalEmotion(plr.lastSentence)
+    end
 end
 
 function chat:draw()
+    love.graphics.setFont(font)
+    love.graphics.print("T to type:", 50, 50)
+    love.graphics.rectangle("line", 50, 100, 400, 50)
     
+    if plr.state == "typing" then
+        love.keyboard.setKeyRepeat(true)
+        love.graphics.print(text, 60, 110)
+        local substring = string.sub(text, 1, 1)
+        if substring == "/" then
+            text = "" 
+        end
+    end
 end
 
 function chat:textinput(t)
