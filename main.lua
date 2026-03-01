@@ -121,12 +121,11 @@ local AI = {
     end,
 }
 local input = io.read()
-while true do
-    
+
+while true do    
     if input == "exit" then
         break
     end
-    
     AI:read(input)
     print(AI:determineResponse())
     input = io.read()
