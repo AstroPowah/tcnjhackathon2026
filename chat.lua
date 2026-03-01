@@ -9,6 +9,7 @@ function chat:load()
     font = love.graphics.newFont(20)
 end
 
+
 function chat:update(dt)
     if plr.state == "sentMessage" then
         local splitMessage = {}
@@ -23,16 +24,21 @@ function chat:update(dt)
         for index, value in ipairs(splitMessage) do
             print(index, value)
         end
+        local typeOfText = eval:evalTypeOfText(splitMessage)
+        local response = eval:getResponse(typeOfText, moodAmount)
+        print("The response is:", response)
+        AI.text = response
         print("The mood is", moodAmount)
+        AI.mood = moodAmount
         plr.state = "idle"
     end
 
 end
-
 function chat:draw()
     love.graphics.setFont(font)
-    love.graphics.print("T to type:", 50, 50)
+    love.graphics.print("/ to type:", 50, 50)
     love.graphics.rectangle("line", 50, 100, 400, 50)
+    -- love.graphics.print(AI.text, 225, 150)
     
     if plr.state == "typing" then
         love.keyboard.setKeyRepeat(true)
@@ -55,8 +61,8 @@ end
 function chat:keypressed(k)
     if k == "/" and plr.state == "idle" then
         plr.state = "typing"
-    elseif k == "/" and plr.state == "typing" then
-        plr.state = ""
+    -- elseif k == "/" and plr.state == "typing" then
+    --     plr.state = ""
     end
     if k == "escape" and plr.state == "typing" then
         plr.state = "idle"

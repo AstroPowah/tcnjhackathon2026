@@ -1,7 +1,10 @@
 local malachi = {
     x = 60,
     y = 60,
+    text = "",
+    textLifeSpan = 5,
     state = "",
+    mood = "Neutral",
     moodAmount = {
         Happy = 0,
         Angry = 0,
@@ -43,6 +46,30 @@ local malachi = {
         -- print("Happy", self.moodAmount.Happy,"Angry", self.moodAmount.Angry,"Neutral", self.moodAmount.Neutral)
         self.LastText = string
     end,
+    update = function(self,dt)
+        local dirX,dirY = self.x - player.x,self.y -player.y
+        local dis = math.sqrt((dirX*dirX)+(dirY*dirY))
+        if dis <= 60 and self.mood == "Angry" then
+            if self.textLifeSpan <= 0 then
+                self.text = "IM GONNA KILL YOU"
+                self.textLifeSpan = 10
+                self.state = "Angered"
+            end
+        end
+
+        if self.state == "Angered" then
+            local norX,norY = dirX/dis,dirY/dis
+            self.x = self.x - (norX*5)
+            self.y = self.y - (norY*5)
+        end
+        self.textLifeSpan = self.textLifeSpan-dt
+    end,
+    draw = function (self)
+        love.graphics.circle("fill",self.x,self.y,20)
+        if self.textLifeSpan >0 then
+            love.graphics.print(self.text, self.x, self.y-30)
+        end
+    end
     
 }
 local differentPhrases = {
@@ -55,12 +82,7 @@ local differentPhrases = {
     Neutral = {},
 }
 
-local typeOfText = {
-    ['greeting'] = {"hi", "hello", "hey"},
-    ['question'] = {"what", "why", "how", "where", "when"},
-    ['statement'] = {"i", "you", "the", "it", "this"},
-    
-}
+
 local moodText = {
     greeting = {
         Happy = {"Hi there!", "Hello!", "Hey!", "Hi friend!", "Hello there!"},
