@@ -22,6 +22,7 @@ function evaluated:evalEmotion(str)
 end
 
 function evaluated:compare(splitStr)
+    matches = {}
     for _, n in pairs(wb) do
         for mood, words in pairs(n) do
             matches = string.match(splitStr, p)

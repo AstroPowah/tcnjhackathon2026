@@ -3,6 +3,7 @@ local chat = require 'chat'
 local sti = require 'libs/STI/sti'
 local bump = require 'libs/bump/bump'
 local camera = require 'libs/camera'
+local player = require'player'
 
 function love.load()
     --chat:load()
@@ -13,6 +14,7 @@ end
 
 function love.update(dt)
     --chat:update(dt)
+    player:update()
     map:update(dt)
 end
 
@@ -22,9 +24,10 @@ end
 
 function love.draw()
     --chat:draw()
-    map:drawLayer(map.layers["background"], 10, 10)
-    map:drawLayer(map.layers["foreground"], 10, 10)
-    map:drawLayer(map.layers["objects"], 10, 10)
+    map:drawLayer(map.layers["background"])
+    map:drawLayer(map.layers["foreground"])
+    map:drawLayer(map.layers["objects"])
+    player:draw()
     --map:bump_draw(map, 0, 0, 0, 0)
 end
 
