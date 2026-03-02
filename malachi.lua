@@ -2,6 +2,10 @@ local malachi = {
     x = 60,
     y = 60,
     state = "",
+    Neurons = {
+        Happy = neuron(),
+        Angry = neuron()
+    },
     moodAmount = {
         Happy = 0,
         Angry = 0,

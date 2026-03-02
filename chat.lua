@@ -20,8 +20,18 @@ function chat:update(dt)
             splitMessage = eval:evalEmotion(plr.lastSentence)
             moodAmount = eval:evalEmot(splitMessage)
         end
+        local outputs = {}
+        print("Doing")
+
+        for mood,theNeuron in pairs(AI.Neurons)do
+            print("something")
+            outputs[mood] = theNeuron:predict(splitMessage)
+        end
         for index, value in ipairs(splitMessage) do
             print(index, value)
+        end
+        for k, v in pairs(outputs) do
+            print(k,v)
         end
         print("The mood is", moodAmount)
         plr.state = "idle"
