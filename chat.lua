@@ -15,10 +15,10 @@ end
 
 function chat:update(dt)
     if plr.state == "sentMessage" then
-        local splitMessage = {}
+        plr.lastSentence = finalText
+        --[[local splitMessage = {}
         local mood, moodAmount
         -- print("Sent once")
-        plr.lastSentence = finalText
         if string.len(plr.lastSentence) > 0 then
             -- print(plr.lastSentence)
             splitMessage = eval:evalEmotion(plr.lastSentence)
@@ -33,7 +33,21 @@ function chat:update(dt)
         print("The response is:", response)
         AI.text = response
         print("The mood is", mood)
-        AI.mood = mood
+        AI.mood = mood]]
+        if string.len(plr.lastSentence) > 0 then
+            AI.mood, AI.moodValue = MLAI:predict(plr.lastSentence)
+        end
+        local split = {}
+        for word in string.gmatch((plr.lastSentence), "%a+") do
+            table.insert(split, word)
+        end
+        local typeOfText = eval:evalTypeOfText(split)
+        
+        local response = eval:getResponse(typeOfText, AI.mood)
+        
+        AI.text = response
+        print(AI.mood)
+        
         plr.state = "idle"
     end
 end

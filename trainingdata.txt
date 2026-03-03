@@ -1,0 +1,34 @@
+"I love you", Happy;
+"This is amazing", Happy;
+"You are awesome", Happy;
+"I really like this", Happy;
+"That was great", Happy;
+"I feel good today", Happy;
+"You make me happy", Happy;
+"This is wonderful", Happy;
+"I enjoy talking to you", Happy;
+"Everything is fine", Happy;
+"Hello friend",Happy;
+"How is it going pal",Happy;
+
+"Hello there", Neutral;
+"I am here", Neutral;
+"What is this", Neutral;
+"That is okay", Neutral;
+"I do not know", Neutral;
+"It is a day", Neutral;
+"I am thinking", Neutral;
+"This exists", Neutral;
+"I see you", Neutral;
+"Tell me more", Neutral;
+
+"I hate you", Angry;
+"This is stupid", Angry;
+"You are annoying", Angry;
+"I do not like this", Angry;
+"That was terrible", Angry;
+"You make me mad", Angry;
+"This is bad", Angry;
+"I am angry", Angry;
+"Go away", Angry;
+"You are awful", Angry;
